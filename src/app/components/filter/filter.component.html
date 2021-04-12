@@ -1,0 +1,45 @@
+<div class="sidebar">
+    <div class="card">
+        <div class="card-header">
+            <h3>Filters</h3>
+        </div>
+        <div class="card-body">
+
+            <div>
+                <div class="text-center">Launch Year</div>
+                <hr>
+                <ul class="btn-list">
+                    <li *ngFor="let year of yearData">
+                        <button class="btn" [ngClass]="{'active':filter?.year==year}"
+                            (click)="selectYear(year)">{{year}}</button>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div class="text-center">Successful Launch</div>
+                <hr>
+                <ul class="btn-list">
+                    <li><button class="btn" [ngClass]="{'active':filter?.launchSuccess=='true'}"
+                            (click)="selectSuccessLaunch('true')">True</button></li>
+                    <li><button class="btn" (click)="selectSuccessLaunch('false')"
+                            [ngClass]="{'active':filter?.launchSuccess=='false'}">False</button></li>
+                </ul>
+            </div>
+            <div>
+                <div class="text-center">Successful Landing</div>
+
+                <hr>
+                <ul class="btn-list">
+                    <li><button class="btn" [ngClass]="{'active':filter?.landingSuccess=='true'}"
+                            (click)="selectSuccessLand('true')">True</button></li>
+                    <li><button class="btn" [ngClass]="{'active':filter?.landingSuccess=='false'}"
+                            (click)="selectSuccessLand('false')">False</button></li>
+                </ul>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-red" (click)="reset()">Reset</button>
+            </div>
+        </div>
+    </div>
+
+</div>
